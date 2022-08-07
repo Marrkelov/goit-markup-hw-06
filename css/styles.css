@@ -13,6 +13,8 @@
   --black-color: #000000;
   --white-color: #ffffff;
   --footer-color-contact: rgba(255, 255, 255, 0.6);
+  --modal-border-color: rgba(33, 33, 33, 0.2);
+  --modal-coment-color: rgba(117, 117, 117, 0.5);
 
   --scry-sc-darck-tm-bg: rgba(255, 255, 255, 0.1);
   --secondary-bg-color: #2f303a;
@@ -60,12 +62,18 @@ ul {
 img {
   display: block;
 }
+
 button {
   cursor: pointer;
 }
+
 a,
 button:focus-visible {
   outline: none;
+}
+
+textarea {
+  resize: none;
 }
 
 .container {
@@ -107,15 +115,33 @@ button:focus-visible {
   fill: currentColor;
 }
 
+.btn {
+  border-radius: 4px;
+  border: none;
+
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+
+  color: var(--white-color);
+  background-color: var(--accent-color);
+
+  transition: background-color var(--speed-animation) var(--animation-type),
+    box-shadow var(--speed-animation) var(--animation-type);
+}
+
+.btn:hover,
+.btn:focus {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  background-color: var(--hover-btn);
+}
+
 /* ===================== /COMPONENT ======================= */
 
 /* =================  M A I N   P A G E =================== */
 
 /* ======================= HEADER ========================= */
-
-/* .hdr {
-  border-bottom: 1px solid var(--header-bottom-border-color);
-} */
 
 .hdr-container {
   display: flex;
@@ -263,23 +289,6 @@ button:focus-visible {
 
 .hero-btn {
   padding: 10px 32px;
-
-  border: none;
-  border-radius: 4px;
-  font-family: inherit;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.9;
-  letter-spacing: 0.06em;
-
-  background: var(--accent-color);
-  color: var(--white-color);
-  transition: background-color var(--speed-animation) var(--animation-type);
-}
-
-.hero-btn:hover,
-.hero-btn:focus {
-  background-color: var(--hover-btn);
 }
 
 .data-modal {
@@ -293,6 +302,7 @@ button:focus-visible {
   visibility: visible;
   opacity: 1;
   background-color: var(--modal-backdrop);
+
   transition: opacity var(--speed-animation) var(--animation-type),
     visibility var(--speed-animation) var(--animation-type);
 }
@@ -307,19 +317,174 @@ button:focus-visible {
   position: absolute;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%) scale(1);
 
   width: 528px;
   height: 581px;
+  padding: 40px;
 
-  border-radius: 3px;
+  border-radius: 4px;
 
   background-color: var(--prymary-bg-color);
-  transform: translate(-50%, -50%) scale(1);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+
   transition: transform var(--speed-animation) var(--animation-type);
 }
 
 .data-modal.is-hidden .modal {
   transform: translate(-50%, -50%) scale(1.1);
+}
+
+.modal-title {
+  margin-bottom: 12px;
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+
+  color: var(--bold-color);
+}
+
+.modal-form {
+  width: 448px;
+}
+
+.modal-form-field {
+  position: relative;
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+
+  margin-bottom: 10px;
+}
+
+.field-name {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+}
+
+.modal-form-field .inp {
+  height: 40px;
+
+  margin: 0;
+  padding: 0;
+  padding-left: 42px;
+  margin-top: 4px;
+
+  border-radius: 4px;
+  border: 1px solid var(--modal-border-color);
+
+  transition: border var(--speed-animation) var(--animation-type),
+    fill var(--speed-animation) var(--animation-type);
+}
+
+.modal-form-field .inp:focus {
+  outline: none;
+  border: 1px solid var(--accent-color);
+}
+
+.modal-form-field .inp:focus ~ .modal-icon-span {
+  fill: var(--accent-color);
+}
+
+.modal-form-field .modal-icon-span {
+  position: absolute;
+  top: 50%;
+
+  margin-left: 12px;
+}
+
+.modal-comment {
+  height: 122px;
+  margin-bottom: 20px;
+}
+
+.comment-input {
+  height: 120px;
+  padding: 12px 16px;
+  margin-top: 4px;
+
+  border: 1px solid var(--modal-border-color);
+  border-radius: 4px;
+
+  transition: border var(--speed-animation) var(--animation-type);
+}
+
+.comment-input:focus {
+  outline: none;
+  border: 1px solid var(--accent-color);
+}
+
+.comment-input::placeholder {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+
+  color: var(--modal-coment-color);
+}
+
+.modal-form-checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  font-size: 14px;
+  line-height: 1.71;
+}
+
+.checkbox-icon {
+  position: relative;
+
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+
+  border: 2px solid var(--bold-color);
+  border-radius: 2px;
+
+  transition: background-color var(--speed-animation) var(--animation-type),
+    border-color var(--speed-animation) var(--animation-type);
+}
+
+.checkbox-icon-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.checkbox-input {
+  position: absolute;
+  border: 0;
+  padding: 0;
+
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+
+  white-space: nowrap;
+}
+
+.checkbox-input:checked + .checkbox-icon {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.checkbox-link {
+  text-decoration-skip-ink: none;
+  font-size: 14px;
+  line-height: 1.71;
+  color: var(--accent-color);
+}
+
+.modal-btn {
+  padding: 10px 56px;
+  margin-top: 30px;
 }
 
 .data-modal-close {
@@ -341,6 +506,7 @@ button:focus-visible {
 
 .modal-svg {
   fill: var(--black-color);
+
   transition: fill var(--speed-animation) var(--animation-type);
 }
 
@@ -639,6 +805,7 @@ button:focus-visible {
 .cnt-address .item:not(:last-child) {
   margin-bottom: 9px;
 }
+
 .cnt .link {
   transition: color var(--speed-animation) var(--animation-type);
 }
@@ -684,6 +851,65 @@ button:focus-visible {
 
 .social-ft-svg {
   fill: var(--white-color);
+}
+
+.container-subscription {
+  margin-left: 93px;
+}
+
+.subscription-title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+
+  color: var(--white-color);
+}
+
+.subscription-form-field .inp {
+  width: 359px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  padding-left: 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+
+  background-color: transparent;
+  color: var(--footer-color-contact);
+
+  transition: border var(--speed-animation) var(--animation-type);
+}
+
+.subscription-form-field .inp::placeholder {
+  line-height: 1.25;
+
+  color: var(--footer-color-contact);
+}
+
+.subscription-form-field .inp:focus {
+  outline: none;
+  border: 1px solid var(--accent-color);
+}
+
+.subscription-container {
+  display: flex;
+  margin-top: 20px;
+}
+
+.subscription-btn {
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  padding: 10px 29px;
+  margin-left: 12px;
+}
+
+.subscription-btn-svg {
+  margin-left: 10px;
 }
 
 /* ======================= /BASEMENT ======================= */
