@@ -396,9 +396,12 @@ textarea {
   margin-left: 12px;
 }
 
-.modal-comment {
-  height: 122px;
+.form-field-comment {
   margin-bottom: 20px;
+}
+
+.comment-input {
+  height: 122px;
 }
 
 .comment-input {
