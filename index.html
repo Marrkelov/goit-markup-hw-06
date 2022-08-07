@@ -71,43 +71,43 @@
               <h2 class="modal-title">
                 Оставьте свои данные, мы вам перезвоним
               </h2>
-              <form class="modal-form" action="">
-                <label class="modal-form-field" for="name">
+              <form class="modal-form">
+                <label class="modal-form-field">
                   <span class="field-name">Имя</span>
                   <input
                     class="inp"
-                    type="name"
-                    name="name"
-                    required
+                    type="text"
+                    name="usrname"
                     minlength="2"
                     pattern="^[a-zA-Zа-яА-ЯіІїЇ]+$"
+                    required
                   />
                   <span class="modal-icon-span"
                     ><svg class="modal-icon" width="18px" height="18px">
                       <use href="./images/icons.svg#modal-name"></use></svg
                   ></span>
                 </label>
-                <label class="modal-form-field" for="tel">
+                <label class="modal-form-field">
                   <span class="field-name">Телефон</span>
                   <input
                     class="field-input inp"
                     type="tel"
                     name="tel"
-                    required
                     pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"
                     title="xxx-xxx-xx-xx"
+                    required
                   />
                   <span class="modal-icon-span"
                     ><svg class="modal-icon" width="18px" height="18px">
                       <use href="./images/icons.svg#modal-tel"></use></svg
                   ></span>
                 </label>
-                <label class="modal-form-field" for="mail">
+                <label class="modal-form-field">
                   <span class="field-name">Почта</span>
                   <input
                     class="form-input inp"
                     type="email"
-                    name="email"
+                    name="mail"
                     required
                   />
                   <span class="modal-icon-span"
@@ -115,7 +115,7 @@
                       <use href="./images/icons.svg#modal-mail"></use></svg
                   ></span>
                 </label>
-                <label class="modal-form-field" for="comment">
+                <label class="modal-form-field">
                   <span class="field-name">Коментарий</span>
                   <textarea
                     class="comment-input"
@@ -123,19 +123,16 @@
                     placeholder="Введите текст"
                   ></textarea>
                 </label>
-                <label class="modal-form-checkbox" for="checkbox">
+                <label class="modal-form-checkbox">
                   <input
                     class="checkbox-input"
-                    id="checkbox"
                     type="checkbox"
                     name="checkbox"
                   />
                   <span class="checkbox-icon"
                     ><svg class="checkbox-icon-svg" width="16px" height="15px">
-                      <use href="./images/icons.svg#checkbox"></use>
-                      >
-                    </svg></span
-                  >
+                      <use href="./images/icons.svg#checkbox"></use></svg
+                  ></span>
                   Соглашаюсь с рассылкой и принимаю &nbsp;
                   <a class="checkbox-link" href="#">Условия договора</a>
                 </label>
@@ -622,11 +619,11 @@
           <h2 class="subscription-title">Подпишитесь на рассылку</h2>
           <div class="subscription-container">
             <form action="subscription-form">
-              <label class="subscription-form-field" for="mail"
+              <label class="subscription-form-field"
                 ><input
                   class="inp"
                   type="email"
-                  name="email"
+                  name="mail"
                   placeholder="E-mail"
                   required
               /></label>
